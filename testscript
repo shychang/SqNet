@@ -1,38 +1,50 @@
 #!/bin/bash
 
+# upgrade/update
+echo Performing some upgrades...
 sudo apt-get update
 sudo pip install --upgrade
+echo Upgrades completed
+sleep 2
 
 # INSTALLING TF
-echo Installing tensorflow
+echo Installing tensorflow...
 sudo apt-get install python-pip python-dev #for python 2.7
 #sudo apt-get install python3-pip python3-dev #for python 3.n
-
-pip install tensorflow
- 
+pip install tensorflow 
 echo TensorFlow installed
+sleep 2
 
 
 # INSTALLING KERAS
-echo Installing Keras
+echo Installing Keras...
 sudo pip install keras
 #pip install keras #use if using a virtualenv
 echo Keras installed
+sleep 2
 
 
 # INSTALLING KERAS SQUEEZENET from #https://github.com/rcmalli/keras-squeezenet
-echo Getting Keras Squeezenet Implementation
+echo Getting Keras Squeezenet Implementation...
 pip install keras_squeezenet
 echo Done.
+sleep 2
 
 # INSTALLING OTHER PACKAGES
-echo skimage
+echo Getting skimage...
 sudo apt-get install python-skimage
 echo Done.
+sleep 1
 
-echo resizeimage
+echo Getting resizeimage...
 pip install python-resize-image
 echo Done.
+sleep 1
+
+echo Getting h5py
+sudo pip install h5py
+echo Done.
+sleep 1
 
 echo Should be ready to run scripts. Test by importing needed packages.
 
