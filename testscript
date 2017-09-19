@@ -1,11 +1,15 @@
 #!/bin/bash
 
+sudo apt-get update
+sudo pip install --upgrade
+
 # INSTALLING TF
 echo Installing tensorflow
 sudo apt-get install python-pip python-dev #for python 2.7
 #sudo apt-get install python3-pip python3-dev #for python 3.n
+
 pip install tensorflow
-sudo pip install --upgrade 
+ 
 echo TensorFlow installed
 
 
