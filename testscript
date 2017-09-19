@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# INSTALLING TF
+echo Installing tensorflow
+sudo apt-get install python-pip python-dev #for python 2.7
+#sudo apt-get install python3-pip python3-dev #for python 3.n
+pip install tensorflow
+sudo pip install --upgrade 
+echo TensorFlow installed
+
+
+# INSTALLING KERAS
+echo Installing Keras
+sudo pip install keras
+#pip install keras #use if using a virtualenv
+echo Keras installed
+
+
+# INSTALLING KERAS SQUEEZENET from #https://github.com/rcmalli/keras-squeezenet
+echo Getting Keras Squeezenet Implementation
+pip install keras_squeezenet
+echo Done.
+
+# INSTALLING OTHER PACKAGES
+echo skimage
+sudo apt-get install python-skimage
+echo Done.
+
+echo resizeimage
+pip install python-resize-image
+echo Done.
+
+echo Should be ready to run scripts. Test by importing needed packages.
+
+
+
