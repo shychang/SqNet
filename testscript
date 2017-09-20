@@ -7,6 +7,18 @@ sudo pip install --upgrade
 echo Upgrades completed
 sleep 2
 
+# Set up FUSE for mounting GCP Buckets
+echo Installing FUSE so buckets can be mounted...
+sleep 1
+export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
+echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install gcsfuse
+echo FUSE successfully installed. Can use with GCS buckets now.
+sleep 2
+
+
 # INSTALLING TF
 echo Installing tensorflow...
 sudo apt-get install python-pip python-dev #for python 2.7
