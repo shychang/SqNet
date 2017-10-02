@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # assuming working from home director /home/usr/ or ~
+
 # upgrade/update
 echo Performing some upgrades...
 sudo apt-get update
@@ -21,7 +22,6 @@ sleep 2
 
 
 # INSTALLING TF
-#### WORK IN PROGRESS FOR GPU SUPPORT
 # FOR GPU SUPPORT, THESE LINES ARE NECESSARY
 # this assumes using NVIDIA GRAPHICS CARD TeslaP100 and Ubuntu 16.04
 sudo apt-get update
@@ -38,6 +38,11 @@ sudo apt-get update
 sudo apt-get install cuda-8-0
 echo CUDA Toolkit installed
 sleep 2
+echo Setting up environment
+sleep 2
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\
+${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 echo installing cuDNN 6 Library
 sudo dpkg -i ./libcudnn6_6.0.21-1+cuda8.0_amd64.deb
