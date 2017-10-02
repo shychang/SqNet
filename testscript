@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# assuming working from home director /home/usr/ or ~
 # upgrade/update
 echo Performing some upgrades...
 sudo apt-get update
@@ -23,19 +24,56 @@ sleep 2
 #### WORK IN PROGRESS FOR GPU SUPPORT
 # FOR GPU SUPPORT, THESE LINES ARE NECESSARY
 # this assumes using NVIDIA GRAPHICS CARD TeslaP100 and Ubuntu 16.04
-# sudo apt-get update
-# sudo apt-get install build-essential
+sudo apt-get update
+sudo apt-get install build-essential
+echo Cloning Git Repo with CUDA resources
+sleep 2
+git clone https://github.com/shychang/SqNet.git
+cd ./SqNet
+
+echo installing CUDA Toolkit 8.0
+sleep 2
+sudo dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo apt-get update
+sudo apt-get install cuda-8-0
+echo CUDA Toolkit installed
+sleep 2
+
+echo installing cuDNN 6 Library
+sudo dpkg -i ./libcudnn6_6.0.21-1+cuda8.0_amd64.deb
+sudo dpkg -i ./libcudnn6-dev_6.0.21-1+cuda8.0_amd64.deb
+sudo dpkg -i ./libcudnn6-doc_6.0.21-1+cuda8.0_amd64.deb
+cd ..
+echo Library installation completed.
+sleep 2
+sudo apt-get install libcupti-dev
+echo GPU setup finished. 
+sleep 2
 # END GPU SUPPORT
-echo Installing tensorflow...
+
+#### Tensorflow CPU ONLY
+# echo Installing tensorflow (CPU ONLY)...
+# sudo apt-get install python-pip python-dev #for python 2.7
+# #sudo apt-get install python3-pip python3-dev #for python 3.n
+# pip install tensorflow 
+# echo TensorFlow installed
+# sleep 2
+
+#### Tensorflow GPU 
+echo Installing tensorflow with GPU ... 
 sudo apt-get install python-pip python-dev #for python 2.7
 #sudo apt-get install python3-pip python3-dev #for python 3.n
-pip install tensorflow 
+pip install tensorflow-gpu
 echo TensorFlow installed
 sleep 2
 
 
+
 # INSTALLING KERAS
 echo Installing Keras...
+sleep 2
+sudo apt-get update
+sudo pip install --upgrade
 sudo pip install keras
 #pip install keras #use if using a virtualenv
 echo Keras installed
