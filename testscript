@@ -28,7 +28,7 @@ sudo apt-get update
 sudo apt-get install build-essential
 echo Cloning Git Repo with CUDA resources
 sleep 2
-git clone https://github.com/shychang/SqNet.git
+# git clone https://github.com/shychang/SqNet.git
 cd ./SqNet
 
 echo installing CUDA Toolkit 8.0
