@@ -20,6 +20,12 @@ sleep 2
 
 
 # INSTALLING TF
+#### WORK IN PROGRESS FOR GPU SUPPORT
+# FOR GPU SUPPORT, THESE LINES ARE NECESSARY
+# this assumes using NVIDIA GRAPHICS CARD TeslaP100 and Ubuntu 16.04
+# sudo apt-get update
+# sudo apt-get install build-essential
+# END GPU SUPPORT
 echo Installing tensorflow...
 sudo apt-get install python-pip python-dev #for python 2.7
 #sudo apt-get install python3-pip python3-dev #for python 3.n
